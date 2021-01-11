@@ -14,16 +14,18 @@ import kotlinx.coroutines.flow.collect
 class UploadFavOfflineWorker @WorkerInject constructor(@Assisted val context: Context, @Assisted params: WorkerParameters
                                                        , val repository: PostRepository ) : CoroutineWorker(context,params) {
     override suspend fun doWork(): Result {
+        var result:String?=null
         repository.getFavOffline().collect {
              it.forEach {
-                 uploadtoServer(it.toDomain())
                  repository.removeOfflineFav(it)
+                 result=uploadtoServer(it.toDomain())
              }
         }
-        return Result.success()
+        return if (result==null)Result.success() else Result.failure()
     }
 
-   suspend fun uploadtoServer(post:Post){
+   suspend fun uploadtoServer(post:Post) : String?{
         Log.d("UploadIng","Upload ... $post" )
+       return null
      }
 }

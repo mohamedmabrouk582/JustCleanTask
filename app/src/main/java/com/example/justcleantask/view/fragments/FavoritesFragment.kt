@@ -37,14 +37,11 @@ class FavoritesFragment : Fragment(R.layout.favorites_fragment_layout)  , FavCal
         viewmodel.attachView(this)
         val alphaAdapter = AlphaInAnimationAdapter(adapter)
         viewBinding.favRcv.adapter= ScaleInAnimationAdapter(alphaAdapter)
-        viewBinding.favVm=viewmodel
         loadFavPosts(viewmodel.loadFavPosts())
     }
 
     override fun loadFavPosts(fav: LiveData<List<PostEntity>>) {
-        viewmodel.error.set("no fav posts")
       fav.observe(viewLifecycleOwner,{fav ->
-          viewmodel.error.set(null)
          adapter.data= ArrayList(fav)
       })
     }
@@ -55,8 +52,8 @@ class FavoritesFragment : Fragment(R.layout.favorites_fragment_layout)  , FavCal
 
     override fun OnBookClick(item: PostEntity, pos: Int) {
         lifecycleScope.launch {
-            viewmodel.removeFav(item)
             if(viewmodel.offline())viewmodel.removeOfflineFav(item.toOffline())
+            viewmodel.removeFav(item)
         }
          adapter.removeFav(pos)
     }

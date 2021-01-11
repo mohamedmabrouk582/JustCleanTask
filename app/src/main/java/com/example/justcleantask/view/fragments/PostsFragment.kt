@@ -64,11 +64,11 @@ class PostsFragment : Fragment(R.layout.posts_fragment_layout), PostsAdapter.Pos
     override fun OnBookClick(item: PostEntity, pos: Int) {
         lifecycleScope.launch {
             if (item.isFav){
-                viewModel.unFavPost(item)
                 if (viewModel.offline())viewModel.removeOfflineFav(item.toOffline())
+                viewModel.unFavPost(item)
             }else {
-                viewModel.addPostAsFav(item)
                 if (viewModel.offline())viewModel.saveOfflineFav(item.toOffline())
+                 viewModel.addPostAsFav(item)
             }
         }
         adapter.update(pos)

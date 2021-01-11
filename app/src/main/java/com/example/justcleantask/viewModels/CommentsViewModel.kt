@@ -81,12 +81,12 @@ class CommentsViewModel<V:CommentsCallBack> @ViewModelInject constructor(app:App
       viewModelScope.launch {
         if (it.isFav){
           it.isFav=false
-          removePost(it)
           if (offline())removeOfflineFav(it.toOffline())
+          removePost(it)
         }else {
           it.isFav=true
-          addFav(it)
           if (offline())saveOfflineFav(it.toOffline())
+          addFav(it)
         }
         view.changeIcon(it.isFav)
       }
