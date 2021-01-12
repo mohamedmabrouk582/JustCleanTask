@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                     val id = navController.currentDestination?.id
                     if (id == R.id.postDetailsFragment){
                         navController.navigate(R.id.action_postDetailsFragment_to_favoritesFragment)
-                    } else {
+                    } else if (id==R.id.favoritesFragment){}else {
                         navController.navigate(R.id.action_postsFragment_to_favoritesFragment)
                     }
                     true
