@@ -23,7 +23,7 @@ android {
 
         testInstrumentationRunner "com.example.justcleantask.HiltTestRunner"
         consumerProguardFiles "consumer-rules.pro"
-        buildConfigField ('String', 'BASE_URL', Base_Url)
+        buildConfigField ('String', 'BASE_URL', "\"https://jsonplaceholder.typicode.com/\"")
     }
 
     compileOptions.incremental = false
