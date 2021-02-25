@@ -17,24 +17,11 @@
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.example.justcleantask.view.fragments.FavoritesFragment"
-        android:label="FavoritesFragment" >
-        <action
-            android:id="@+id/action_favoritesFragment_to_postDetailsFragment"
-            app:destination="@id/postDetailsFragment" />
-        <action
-            android:id="@+id/action_favoritesFragment_to_postsFragment"
-            app:destination="@id/postsFragment" />
-    </fragment>
+        android:label="FavoritesFragment" />
     <fragment
         android:id="@+id/postDetailsFragment"
         android:name="com.example.justcleantask.view.fragments.PostDetailsFragment"
         android:label="PostDetailsFragment" >
-        <action
-            android:id="@+id/action_postDetailsFragment_to_favoritesFragment"
-            app:destination="@id/favoritesFragment" />
-        <action
-            android:id="@+id/action_postDetailsFragment_to_postsFragment"
-            app:destination="@id/postsFragment" />
         <argument
             android:name="POST_KEY"
             app:argType="com.example.data.entities.PostEntity" />

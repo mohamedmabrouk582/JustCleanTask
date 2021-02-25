@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/post_item"
+        android:id="@+id/postsFragment"
         android:icon="@drawable/ic_blog"
         android:title="Posts" />
 
     <item
-        android:id="@+id/fav_item"
+        android:id="@+id/favoritesFragment"
         android:icon="@drawable/ic_bookmark"
         android:title="Favorites" />
 

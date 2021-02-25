@@ -31,7 +31,7 @@ suspend fun <T : Any>executeCall(
     var delayDuration = 1000L
     val delayFactor = 2
     return flow {
-        emit(Result.OnLoading(true))
+        emit(Result.OnLoading)
         val response = apiCall()
 
 //        if (response.isSuccessful){
